@@ -10,20 +10,18 @@ This repository contains the source and configuration for a production-like CI/C
  
 ## Table of Contents
 - [Key features:](#key-features)
-- [Pipeline Workflow (End-to-End):](#pipeline-workflow-(End-to-End))
+- [Pipeline Workflow:](#pipeline-workflow)
 - [Prerequisites](#prerequisites)
-- [Setup Instructions](#setup-instructions)
-  - [1. Launch EC2 Instances](#1-launch-ec2-instances)
-  - [2. Install Jenkins, SonarQube, and Docker](#2-install-jenkins-sonarqube-and-docker)
-  - [3. Configure SSH Connections](#3-configure-ssh-connections)
-  - [4. Configure Jenkins Plugins and Jobs](#4-configure-jenkins-plugins-and-jobs)
-- [Pipeline Steps](#pipeline-steps)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
-- 
-
+- [Tech Stack:](#Tech-Stack)
+- [Setup instrctions:](#setup-instructions)
+  - [1. Launch EC2 Instances on AWS](#1-Launch-EC2-instances-on-AWS)
+  - [2. Create an SSH Connection Between Jenkins EC2 and Docker EC2](#2-Create-an-SSH-connection-between-Jenkins-EC2-and-Docker-EC2)
+  - [3. Configure Jenkins Plugins and Jobs](#3-Configure-Jenkins-Plugins-and-Jobs)
+  - [4. Build a Docker Container and Deploy it](#4-Build-a-Docker-container-and-Deploy-it)
+- [What I learned](#what-i-learned)
+- [Next steps / Improvements:](Next-steps-/-Improvements)
+- [Lience:](#lience)
+ 
 ## Key features:
 
 - 🖥️ Git & GitHub – Version control + repo management
@@ -33,8 +31,9 @@ This repository contains the source and configuration for a production-like CI/C
 - 🐳 Docker – Packaging and consistent deployment
 - ☁️ AWS EC2 – Three instances hosting Jenkins, SonarQube & Docker nodes
 
+---
 
-## Pipeline Workflow (End-to-End):
+## Pipeline Workflow:
 
 - Developer commits code → GitHub Repository
 - GitHub Webhook → Notifies Jenkins instantly
@@ -45,6 +44,8 @@ This repository contains the source and configuration for a production-like CI/C
 
 <p>  The entire pipeline is designed to be fully re-runnable and scalable. </p>
 
+--- 
+
 ## Prerequisites:
 
 - GitHub repository for the application
@@ -54,10 +55,81 @@ This repository contains the source and configuration for a production-like CI/C
 - AWS account with EC2 instances (Jenkins, SonarQube optional, Docker host)
 - Configured GitHub Webhook pointing to Jenkins
 
+---
 
-## 🛠️ 𝗧𝗲𝗰𝗵 𝗦𝘁𝗮𝗰𝗸:
+## Tech Stack:
 Git &nbsp;&nbsp;| &nbsp;&nbsp;GitHub &nbsp;&nbsp;| &nbsp;&nbsp;Jenkins &nbsp;&nbsp;| &nbsp;&nbsp;Docker &nbsp;&nbsp;| &nbsp;&nbsp;SonarQube &nbsp;&nbsp;| &nbsp;&nbsp;GitHub Webhooks &nbsp;&nbsp;| &nbsp;&nbsp;NGINX Ingress &nbsp;&nbsp;| &nbsp;&nbsp;AWS EC2
 
+## Setup Instructions:
+
+### 1) Launch EC2 Instances on AWS
+
+Three EC2 instances are used to host the following servers:
+
+- Jenkins Server → Builds an automated pipeline and includes plugins such as SonarQube and SSH2 Easy.
+- Docker Server → Deploys the website and makes it accessible to end users.
+- SonarQube Server → Performs code quality and security checks.
+
+
+<p>Each EC2 instance is configured with the necessary dependencies and plugins.<p/>
+
+### 2) Create an SSH Connection Between Jenkins EC2 and Docker EC2
+
+- Generate SSH keys on the Jenkins server:
+``` bash
+  ssh-keygen -t rsa
+```
+
+- Copy the SSH key to the Docker EC2 instance using its public IP address for passwordless authentication:
+``` bash
+  ssh-copy-id ubuntu@<ip-address>
+```
+
+### 3) Configure Jenkins Plugins and Jobs
+
+- Install the SSH2 Easy plugin in Jenkins to manage secure SSH connections.
+- Set up server groups and sites for Jenkins, SonarQube, and Docker.
+- Create a Jenkins job:
+
+   - Add the GitHub repository link.
+   - Specify the branch to build and deploy.
+   - Add build steps to copy code from Jenkins to SonarQube and Docker instances.
+ 
+### 4) Build a Docker Container and Deploy it
+
+- Create a Dockerfile and run the following commands:
+  ``` bash
+  docker build -t automated-pipeline .
+  ```
+
+  ``` bash
+  docker run -d --name custom-container -p 8085:80 automated-pipeline
+  ```
+ ---
+
+ 
+## What I learned:
+
+ - Real-world pipeline debugging (tokens, credentials, agent configs)
+ - SonarQube quality gates and their role in CI
+ - Docker image lifecycle and deployment considerations
+ - Basic cloud deployments and ingress configuration
+
+
+--- 
+
+## Next steps / Improvements:
+
+ - Move images to AWS ECR
+ - Use Terraform for infrastructure-as-code
+ - Switch to Kubernetes (EKS) for orchestration
+ - Add Slack/Teams notifications and rollback strategies
+
+--- 
+
+## Lience:
+
+License: MIT — include a LICENSE file in the repo.
 
 
 

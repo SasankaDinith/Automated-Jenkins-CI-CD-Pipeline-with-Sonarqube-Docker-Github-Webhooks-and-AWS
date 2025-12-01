@@ -9,20 +9,20 @@ This repository contains the source and configuration for a production-like CI/C
 
  
 ## Table of Contents
-- [Key features:](#key-features)
-- [Pipeline Workflow:](#pipeline-workflow)
+- [Key features](#key-features)
+- [Pipeline Workflow](#pipeline-workflow)
 - [Prerequisites](#prerequisites)
-- [Tech Stack:](#Tech-Stack)
-- [Setup instrctions:](#setup-instructions)
+- [Tech Stack](#Tech-Stack)
+- [Setup instrctions](#setup-instructions)
   - [1. Launch EC2 Instances on AWS](#1-Launch-EC2-instances-on-AWS)
   - [2. Create an SSH Connection Between Jenkins EC2 and Docker EC2](#2-Create-an-SSH-connection-between-Jenkins-EC2-and-Docker-EC2)
   - [3. Configure Jenkins Plugins and Jobs](#3-Configure-Jenkins-Plugins-and-Jobs)
   - [4. Build a Docker Container and Deploy it](#4-Build-a-Docker-container-and-Deploy-it)
 - [What I learned](#what-i-learned)
-- [Next steps / Improvements:](Next-steps-/-Improvements)
-- [Lience:](#lience)
+- [Next steps / Improvements](Next-steps-/-iprovements)
+- [Lience](#lience)
  
-## Key features:
+## Key features
 
 - 🖥️ Git & GitHub – Version control + repo management
 - ⚙️ Jenkins – Orchestrates the entire CI/CD process
@@ -33,7 +33,7 @@ This repository contains the source and configuration for a production-like CI/C
 
 ---
 
-## Pipeline Workflow:
+## Pipeline Workflow
 
 - Developer commits code → GitHub Repository
 - GitHub Webhook → Notifies Jenkins instantly
@@ -46,7 +46,7 @@ This repository contains the source and configuration for a production-like CI/C
 
 --- 
 
-## Prerequisites:
+## Prerequisites
 
 - GitHub repository for the application
 - Jenkins server with plugins: Pipeline, GitHub, Docker Pipeline, SonarQube Scanner, Credentials Binding
@@ -60,7 +60,9 @@ This repository contains the source and configuration for a production-like CI/C
 ## Tech Stack:
 Git &nbsp;&nbsp;| &nbsp;&nbsp;GitHub &nbsp;&nbsp;| &nbsp;&nbsp;Jenkins &nbsp;&nbsp;| &nbsp;&nbsp;Docker &nbsp;&nbsp;| &nbsp;&nbsp;SonarQube &nbsp;&nbsp;| &nbsp;&nbsp;GitHub Webhooks &nbsp;&nbsp;| &nbsp;&nbsp;NGINX Ingress &nbsp;&nbsp;| &nbsp;&nbsp;AWS EC2
 
-## Setup Instructions:
+--- 
+
+## Setup Instructions
 
 ### 1) Launch EC2 Instances on AWS
 
@@ -108,7 +110,7 @@ Three EC2 instances are used to host the following servers:
  ---
 
  
-## What I learned:
+## What I learned
 
  - Real-world pipeline debugging (tokens, credentials, agent configs)
  - SonarQube quality gates and their role in CI
@@ -118,7 +120,7 @@ Three EC2 instances are used to host the following servers:
 
 --- 
 
-## Next steps / Improvements:
+## Next steps / Improvements
 
  - Move images to AWS ECR
  - Use Terraform for infrastructure-as-code
@@ -127,9 +129,10 @@ Three EC2 instances are used to host the following servers:
 
 --- 
 
-## Lience:
+## Lience
 
 License: MIT — include a LICENSE file in the repo.
+
 
 
 

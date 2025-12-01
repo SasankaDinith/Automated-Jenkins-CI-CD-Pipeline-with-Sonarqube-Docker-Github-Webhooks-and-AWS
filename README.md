@@ -129,9 +129,9 @@ Three EC2 instances are used to host the following servers:
 
 --- 
 
-## Lience
+## Licence
 
-License: MIT — include a LICENSE file in the repo.
+<p>This project is licensed under the MIT License.<p/>
 
 
 

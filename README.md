@@ -6,7 +6,7 @@ This repository contains the source and configuration for a production-like CI/C
  ![image url](https://github.com/SasankaDinith/Automated-Jenkins-CI-CD-Pipeline-with-Sonarqube-Docker-Github-Webhooks-and-AWS/blob/946a5a9bded50b2a1fa6cfcbe03749785d93e64b/assets/README%20img/project%20diagram.png)
 
  
-## Table of Contents
+## 📋 Table of Contents
 - [Project Overview](#Project-overview)
 - [Key features](#key-features)
 - [Pipeline Workflow](#pipeline-workflow)
@@ -32,7 +32,7 @@ This repository contains the source and configuration for a production-like CI/C
  - Improve release velocity and enforce code quality
 
  --- 
-## Key features
+## Key features 📋
 
 - 🖥️ Git & GitHub – Version control + repo management
 - ⚙️ Jenkins – Orchestrates the entire CI/CD process
@@ -142,6 +142,7 @@ Three EC2 instances are used to host the following servers:
 ## Licence
 
 <p>This project is licensed under the MIT License.<p/>
+
 
 
 

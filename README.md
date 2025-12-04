@@ -32,7 +32,7 @@ This repository contains the source and configuration for a production-like CI/C
  - Improve release velocity and enforce code quality
 
  --- 
-## Key features 📋
+## Key features 
 
 - 🖥️ Git & GitHub – Version control + repo management
 - ⚙️ Jenkins – Orchestrates the entire CI/CD process
@@ -142,6 +142,7 @@ Three EC2 instances are used to host the following servers:
 ## Licence
 
 <p>This project is licensed under the MIT License.<p/>
+
 
 
 

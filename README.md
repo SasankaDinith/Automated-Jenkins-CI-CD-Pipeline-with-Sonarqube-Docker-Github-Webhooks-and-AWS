@@ -22,7 +22,7 @@ This repository contains the source and configuration for a production-like CI/C
 - [Licence](#licence)
 
 
-## Project Overview
+## Project Overview:
  Developed a fully automated CI/CD pipeline designed to streamline software delivery from code commit to production deployment. Every push to the GitHub repository triggers a robust workflow build, test, code  quality analysis, and deployment ensuring security, reliability, and seamless integration with AWS infrastructure.
  
  - Trigger builds on every GitHub push via Webhooks
@@ -32,7 +32,7 @@ This repository contains the source and configuration for a production-like CI/C
  - Improve release velocity and enforce code quality
 
  --- 
-## Key features 
+## Key features:
 
 - 🖥️ Git & GitHub – Version control + repo management
 - ⚙️ Jenkins – Orchestrates the entire CI/CD process
@@ -43,7 +43,7 @@ This repository contains the source and configuration for a production-like CI/C
 
 ---
 
-## Pipeline Workflow
+## Pipeline Workflow:
 
 - Developer commits code → GitHub Repository
 - GitHub Webhook → Notifies Jenkins instantly
@@ -56,7 +56,7 @@ This repository contains the source and configuration for a production-like CI/C
 
 --- 
 
-## Prerequisites
+## Prerequisites:
 
 - GitHub repository for the application
 - Jenkins server with plugins: Pipeline, GitHub, Docker Pipeline, SonarQube Scanner, Credentials Binding
@@ -139,9 +139,10 @@ Three EC2 instances are used to host the following servers:
 
 --- 
 
-## Licence
+## Licence:
 
 <p>This project is licensed under the MIT License.<p/>
+
 
 
 
